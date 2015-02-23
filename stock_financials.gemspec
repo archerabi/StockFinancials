@@ -1,3 +1,4 @@
+require 'rake'
 Gem::Specification.new do |s|
   s.name        = 'stock_financials'
   s.version     = '0.1.0'
@@ -5,8 +6,9 @@ Gem::Specification.new do |s|
   s.summary     = "Financials for a stock!"
   s.authors     = ["Abhijith Reddy"]
   s.email       = 'archerabi@gmail.com'
-  s.files       = ["lib/stock_financials.rb"]
-  s.homepage    = ''
+  s.files       =  FileList['lib/*'].to_a
+  s.description = "Get stock financials."
+  s.homepage    = 'https://github.com/archerabi/StockFinancials'
   s.license       = 'MIT'
-  s.add_dependency "yql"
+  s.add_dependency "yql", "0.0.2"
 end
