@@ -1,7 +1,7 @@
 class IncomeStatement
 	attr_accessor :total_revenue,:cost_of_revenue,:gross_profit,
 		:total_operating_expenses,:operating_income_or_loss,:ebit,
-		:interest_expenses,:income_before_tax,:income_tax_expense,:net_income
+		:interest_expenses,:income_before_tax,:income_tax_expense,:net_income, :period
 	def initialize(params)
 		@total_revenue = params["TotalRevenue"]["content"] if params["TotalRevenue"]
 		@cost_of_revenue = params["CostofRevenue"]["content"]  if params["CostofRevenue"]
@@ -13,6 +13,7 @@ class IncomeStatement
 		@income_before_tax = params["IncomeBeforeTax"]["content"]  if params["IncomeBeforeTax"]
 		@income_tax_expense = params["IncomeTaxExpense"]["content"]  if params["IncomeTaxExpense"]
 		@net_income = params["NetIncome"]["content"]  if params["NetIncome"]
+		@period = Date.parse(params["period"])
 	end
 
 	def to_s
